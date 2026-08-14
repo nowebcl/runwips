@@ -1,0 +1,98 @@
+[
+  {
+    "region": "Región Metropolitana",
+    "price": 3490,
+    "priceFormatted": "$3.490",
+    "days": "24-48 hrs hábiles"
+  },
+  {
+    "region": "Valparaíso",
+    "price": 4500,
+    "priceFormatted": "$4.500",
+    "days": "2-3 días hábiles"
+  },
+  {
+    "region": "Coquimbo",
+    "price": 4100,
+    "priceFormatted": "$4.100",
+    "days": "2-4 días hábiles"
+  },
+  {
+    "region": "Atacama",
+    "price": 4900,
+    "priceFormatted": "$4.900",
+    "days": "3-5 días hábiles"
+  },
+  {
+    "region": "Antofagasta",
+    "price": 5200,
+    "priceFormatted": "$5.200",
+    "days": "3-5 días hábiles"
+  },
+  {
+    "region": "Tarapacá",
+    "price": 5300,
+    "priceFormatted": "$5.300",
+    "days": "4-6 días hábiles"
+  },
+  {
+    "region": "Arica y Parinacota",
+    "price": 7000,
+    "priceFormatted": "$7.000",
+    "days": "4-6 días hábiles"
+  },
+  {
+    "region": "O'Higgins",
+    "price": 4200,
+    "priceFormatted": "$4.200",
+    "days": "2-3 días hábiles"
+  },
+  {
+    "region": "Maule",
+    "price": 4300,
+    "priceFormatted": "$4.300",
+    "days": "2-3 días hábiles"
+  },
+  {
+    "region": "Ñuble",
+    "price": 4500,
+    "priceFormatted": "$4.500",
+    "days": "2-4 días hábiles"
+  },
+  {
+    "region": "Biobío",
+    "price": 4600,
+    "priceFormatted": "$4.600",
+    "days": "2-4 días hábiles"
+  },
+  {
+    "region": "Araucanía",
+    "price": 4800,
+    "priceFormatted": "$4.800",
+    "days": "3-4 días hábiles"
+  },
+  {
+    "region": "Los Ríos",
+    "price": 5000,
+    "priceFormatted": "$5.000",
+    "days": "3-5 días hábiles"
+  },
+  {
+    "region": "Los Lagos",
+    "price": 5500,
+    "priceFormatted": "$5.500",
+    "days": "3-5 días hábiles"
+  },
+  {
+    "region": "Aysén",
+    "price": 7500,
+    "priceFormatted": "$7.500",
+    "days": "5-8 días hábiles"
+  },
+  {
+    "region": "Magallanes",
+    "price": 8000,
+    "priceFormatted": "$8.000",
+    "days": "5-8 días hábiles"
+  }
+]

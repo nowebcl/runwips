@@ -1,0 +1,38 @@
+[
+  {
+    "id": "todos",
+    "name": "Todos los Drops",
+    "count": 48,
+    "description": "Colección completa de poleras con diseños exclusivos."
+  },
+  {
+    "id": "anime",
+    "name": "Anime & Manga",
+    "count": 9,
+    "description": "Kusuriya, Shingeki no Kyojin, Deadman y más."
+  },
+  {
+    "id": "gaming",
+    "name": "Gaming",
+    "count": 2,
+    "description": "Elden Ring, Segmet y títulos legendarios."
+  },
+  {
+    "id": "musica",
+    "name": "Música & Rock",
+    "count": 7,
+    "description": "Linkin Park, Ghost, Baby Metal, Behemoth."
+  },
+  {
+    "id": "cultura-pop",
+    "name": "Cultura Pop & Memes",
+    "count": 30,
+    "description": "Los Simpsons, clásicos del cine y viral drops."
+  },
+  {
+    "id": "straycats",
+    "name": "StrayCats & K-Pop",
+    "count": 2,
+    "description": "Ediciones especiales K-Culture."
+  }
+]
