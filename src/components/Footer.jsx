@@ -1,5 +1,5 @@
 import React from 'react';
-import { Ruler, ShieldCheck, Truck, MessageCircle, Heart } from 'lucide-react';
+import { Ruler, MessageCircle, Heart } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export default function Footer({ onNavigate }) {
@@ -8,41 +8,6 @@ export default function Footer({ onNavigate }) {
   return (
     <footer className="bg-black border-t border-neutral-900 font-sans text-neutral-400">
       
-      {/* Top Banner Ticker */}
-      <div className="border-b border-neutral-900/80 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center sm:text-left">
-          <div className="flex items-center justify-center sm:justify-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-rw-cyan shrink-0">
-              <Truck className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="text-xs font-mono font-bold uppercase text-white">Despachos a todo Chile</h4>
-              <p className="text-[11px] text-neutral-500">Santiago en 24-48 hrs / Regiones vía Blue Express</p>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center sm:justify-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-rw-cyan shrink-0">
-              <Ruler className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="text-xs font-mono font-bold uppercase text-white">Calce & Tallas Reales</h4>
-              <p className="text-[11px] text-neutral-500">100% Algodón Peinado 24/1 DTF Ultra HD</p>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center sm:justify-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-rw-cyan shrink-0">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="text-xs font-mono font-bold uppercase text-white">Garantía de Satisfacción</h4>
-              <p className="text-[11px] text-neutral-500">Cambios fáciles y compras 100% protegidas</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer Links */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
