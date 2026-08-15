@@ -43,34 +43,6 @@ export default function Header({ currentView, setCurrentView, selectedCategory, 
         isHidden ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'
       }`}
     >
-      {/* Top Announcement Ticker */}
-      <div className="bg-neutral-950 border-b border-neutral-900 text-xs py-1.5 px-4 overflow-hidden">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2 text-neutral-400">
-            <span className="inline-block w-2 h-2 rounded-full bg-rw-cyan animate-pulse"></span>
-            <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-rw-cyan font-semibold">
-              DROP STATUS: ACTIVO
-            </span>
-            <span className="hidden md:inline text-neutral-600">|</span>
-            <span className="hidden md:inline text-neutral-300 text-xs">
-              Despacho express a todo Chile 🇨🇱 // Algodón Peinado 24/1 DTF HD
-            </span>
-          </div>
-
-          <div className="flex items-center gap-4 text-[10px] sm:text-[11px] font-mono">
-            <button
-              onClick={() => setIsSizeGuideOpen(true)}
-              className="hidden sm:inline-flex items-center gap-1 text-neutral-400 hover:text-rw-cyan transition-colors"
-            >
-              <Ruler className="w-3.5 h-3.5" />
-              <span>GUÍA DE TALLAS</span>
-            </button>
-            <span className="text-neutral-700 hidden sm:inline">•</span>
-            <span className="text-rw-cyan font-bold">ENVÍO GRATIS SOBRE $60.000</span>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
