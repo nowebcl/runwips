@@ -62,19 +62,19 @@ export default function HeroBanner({ onExploreCatalog }) {
       <div className="relative z-30 max-w-7xl mx-auto h-full px-6 sm:px-12 lg:px-16 flex flex-col justify-center">
         <div className="max-w-xl text-left">
           
-          {/* Main Huge Title */}
-          <h1 className="font-montserrat font-black text-6xl sm:text-7xl lg:text-8xl tracking-tight uppercase leading-[0.88] text-white drop-shadow-[0_10px_35px_rgba(0,0,0,0.85)]">
+          {/* Main Title - Proportional size */}
+          <h1 className="font-montserrat font-black text-4xl sm:text-5xl lg:text-[54px] tracking-tight uppercase leading-[0.9] text-white drop-shadow-[0_8px_30px_rgba(0,0,0,0.85)]">
             <span>RUN</span>
-            <span className="text-rw-cyan drop-shadow-[0_0_25px_rgba(0,229,255,0.75)]">WIPS</span>
+            <span className="text-rw-cyan drop-shadow-[0_0_20px_rgba(0,229,255,0.7)]">WIPS</span>
             <span className="text-rw-cyan">.</span>
           </h1>
 
           {/* Kicker with Cyan Square */}
-          <div className="mt-6 sm:mt-7 flex items-center gap-2.5">
-            <span className="font-sans font-bold text-xs sm:text-sm tracking-[0.12em] text-white uppercase drop-shadow-md">
+          <div className="mt-5 sm:mt-6 flex items-center gap-2.5">
+            <span className="font-sans font-bold text-xs sm:text-[13px] tracking-[0.12em] text-white uppercase drop-shadow-md">
               DROP READY — ARTE ORIGINAL
             </span>
-            <span className="w-2.5 h-2.5 bg-rw-cyan shrink-0 shadow-[0_0_8px_#00e5ff]" />
+            <span className="w-2 h-2 bg-rw-cyan shrink-0 shadow-[0_0_8px_#00e5ff]" />
           </div>
 
           {/* Subtitles */}
