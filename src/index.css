@@ -166,6 +166,33 @@ body {
   pointer-events: none;
 }
 
+/* Elden Ring Promo Background responsive positioning */
+.rw-offer-bg {
+  background-image: url('https://runwips.shop/wp-content/uploads/2026/02/POLERASELDENRING-scaled.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 20%;
+  filter: brightness(0.85) contrast(1.05) saturate(0.98);
+}
+
+@media (max-width: 1024px) {
+  .rw-offer-bg {
+    background-position: 32% 18%;
+  }
+}
+
+@media (max-width: 768px) {
+  .rw-offer-bg {
+    background-position: 28% 18%;
+  }
+}
+
+@media (max-width: 480px) {
+  .rw-offer-bg {
+    background-position: 22% 18%;
+  }
+}
+
 /* Shipping Marquee Animation */
 @keyframes scrollLeft {
   0% { transform: translateX(0); }

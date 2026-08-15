@@ -28,15 +28,8 @@ export default function OfferSection() {
     <section id="rw-offer-section" className="relative w-full overflow-hidden bg-black font-sans select-none">
       <div className="relative w-full min-h-[640px] sm:min-h-[720px] flex items-center justify-center overflow-hidden">
         
-        {/* Background Image of Elden Ring Photoshoot */}
-        <div
-          className="absolute inset-0 bg-cover bg-no-repeat z-0"
-          style={{
-            backgroundImage: `url('https://runwips.shop/wp-content/uploads/2026/02/POLERASELDENRING-scaled.webp')`,
-            backgroundPosition: 'center 18%',
-            filter: 'brightness(0.85) contrast(1.05) saturate(0.98)'
-          }}
-        />
+        {/* Background Image of Elden Ring Photoshoot with Responsive Alignment */}
+        <div className="absolute inset-0 rw-offer-bg z-0" />
 
         {/* Radial & Linear Gradient Overlays */}
         <div
