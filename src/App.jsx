@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CartProvider, useCart } from './context/CartContext';
 import Header from './components/Header';
 import HomeView from './views/HomeView';
@@ -15,7 +15,22 @@ import { Check } from 'lucide-react';
 function AppContent() {
   const [currentView, setCurrentView] = useState('home'); // 'home' | 'catalog'
   const [selectedCategory, setSelectedCategory] = useState('todos');
+  const [isScrolled, setIsScrolled] = useState(false);
   const { toastMessage } = useCart();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Trigger header appearance when scrolled down past ~350px
+      if (window.scrollY > 350) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleExploreCatalog = (catId = 'todos') => {
     setSelectedCategory(catId);
@@ -44,16 +59,17 @@ function AppContent() {
         </div>
       )}
 
-      {/* Navbar Header */}
+      {/* Navbar Header (Hidden on home cover, shows on scroll or in catalog) */}
       <Header
         currentView={currentView}
         setCurrentView={setCurrentView}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
+        isScrolled={isScrolled}
       />
 
       {/* Main View Router */}
-      <main className="flex-1">
+      <main className={`flex-1 ${currentView === 'catalog' ? 'pt-24 sm:pt-28' : ''}`}>
         {currentView === 'home' ? (
           <HomeView
             onExploreCatalog={handleExploreCatalog}

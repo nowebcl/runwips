@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ShoppingBag, Search, Menu, X, Ruler, Sparkles, ChevronRight, Zap } from 'lucide-react';
+import { ShoppingBag, Search, Menu, X, Ruler, Sparkles, ChevronRight } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import allProducts from '../data/products.json';
 
-export default function Header({ currentView, setCurrentView, selectedCategory, setSelectedCategory }) {
-  const { totalItems, setIsCartOpen, setIsSizeGuideOpen, formatCLP, openQuickView } = useCart();
+export default function Header({ currentView, setCurrentView, selectedCategory, setSelectedCategory, isScrolled }) {
+  const { totalItems, setIsCartOpen, setIsSizeGuideOpen, openQuickView } = useCart();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -34,23 +34,30 @@ export default function Header({ currentView, setCurrentView, selectedCategory, 
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // If on home and NOT scrolled down past hero, hide the header completely so the cover is clean!
+  const isHidden = currentView === 'home' && !isScrolled;
+
   return (
-    <header className="sticky top-0 z-40 w-full bg-black/95 backdrop-blur-md border-b border-neutral-900 transition-all duration-300">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 w-full bg-black/95 backdrop-blur-md border-b border-neutral-900 transition-all duration-300 ${
+        isHidden ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'
+      }`}
+    >
       {/* Top Announcement Ticker */}
-      <div className="bg-neutral-950 border-b border-neutral-900 text-xs py-2 px-4 overflow-hidden">
+      <div className="bg-neutral-950 border-b border-neutral-900 text-xs py-1.5 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2 text-neutral-400">
             <span className="inline-block w-2 h-2 rounded-full bg-rw-cyan animate-pulse"></span>
-            <span className="font-mono text-[11px] uppercase tracking-wider text-rw-cyan font-semibold">
+            <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-rw-cyan font-semibold">
               DROP STATUS: ACTIVO
             </span>
             <span className="hidden md:inline text-neutral-600">|</span>
-            <span className="hidden md:inline text-neutral-300">
+            <span className="hidden md:inline text-neutral-300 text-xs">
               Despacho express a todo Chile 🇨🇱 // Algodón Peinado 24/1 DTF HD
             </span>
           </div>
 
-          <div className="flex items-center gap-4 text-[11px] font-mono">
+          <div className="flex items-center gap-4 text-[10px] sm:text-[11px] font-mono">
             <button
               onClick={() => setIsSizeGuideOpen(true)}
               className="hidden sm:inline-flex items-center gap-1 text-neutral-400 hover:text-rw-cyan transition-colors"
@@ -66,7 +73,7 @@ export default function Header({ currentView, setCurrentView, selectedCategory, 
 
       {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           
           {/* Logo */}
           <div className="flex items-center gap-8">
@@ -151,17 +158,17 @@ export default function Header({ currentView, setCurrentView, selectedCategory, 
 
           {/* Right Action Icons */}
           <div className="flex items-center gap-3 sm:gap-4">
-            {/* Live Search Trigger & Bar */}
+            {/* Live Search */}
             <div className="relative">
               {isSearchOpen ? (
-                <div className="flex items-center bg-neutral-900 border border-rw-cyan/60 rounded-xl px-3 py-1.5 w-60 sm:w-80 shadow-[0_0_15px_rgba(0,229,255,0.15)] transition-all">
+                <div className="flex items-center bg-neutral-900 border border-rw-cyan/60 rounded-xl px-3 py-1.5 w-56 sm:w-80 shadow-[0_0_15px_rgba(0,229,255,0.15)] transition-all">
                   <Search className="w-4 h-4 text-rw-cyan mr-2 shrink-0" />
                   <input
                     ref={searchInputRef}
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Buscar polera (ej. Kusuriya, Elden)..."
+                    placeholder="Buscar polera..."
                     className="w-full bg-transparent text-xs text-white placeholder:text-neutral-500 focus:outline-none"
                   />
                   <button
@@ -177,7 +184,7 @@ export default function Header({ currentView, setCurrentView, selectedCategory, 
               ) : (
                 <button
                   onClick={() => setIsSearchOpen(true)}
-                  className="w-10 h-10 rounded-xl border border-neutral-800 bg-neutral-950 flex items-center justify-center text-neutral-300 hover:text-rw-cyan hover:border-rw-cyan/50 hover:bg-neutral-900 transition-all"
+                  className="w-9 sm:w-10 h-9 sm:h-10 rounded-xl border border-neutral-800 bg-neutral-950 flex items-center justify-center text-neutral-300 hover:text-rw-cyan hover:border-rw-cyan/50 hover:bg-neutral-900 transition-all"
                   aria-label="Buscar productos"
                 >
                   <Search className="w-4 h-4" />
@@ -223,10 +230,10 @@ export default function Header({ currentView, setCurrentView, selectedCategory, 
               )}
             </div>
 
-            {/* Cart Trigger Button with Glow */}
+            {/* Cart Trigger Button */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative flex items-center gap-2.5 px-4 h-10 rounded-xl border border-neutral-800 bg-neutral-950 hover:bg-neutral-900 hover:border-rw-cyan/60 hover:shadow-[0_0_15px_rgba(0,229,255,0.15)] transition-all group"
+              className="relative flex items-center gap-2.5 px-3 sm:px-4 h-9 sm:h-10 rounded-xl border border-neutral-800 bg-neutral-950 hover:bg-neutral-900 hover:border-rw-cyan/60 hover:shadow-[0_0_15px_rgba(0,229,255,0.15)] transition-all group"
               aria-label="Abrir carrito de compras"
             >
               <div className="relative">
@@ -245,10 +252,10 @@ export default function Header({ currentView, setCurrentView, selectedCategory, 
             {/* Mobile Menu Hamburger */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden w-10 h-10 rounded-xl border border-neutral-800 bg-neutral-950 flex items-center justify-center text-neutral-300 hover:text-white"
+              className="lg:hidden w-9 sm:w-10 h-9 sm:h-10 rounded-xl border border-neutral-800 bg-neutral-950 flex items-center justify-center text-neutral-300 hover:text-white"
               aria-label="Abrir menú de navegación"
             >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
           </div>
 
