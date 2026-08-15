@@ -83,8 +83,8 @@ function AppContent() {
         )}
       </main>
 
-      {/* Footer */}
-      <Footer onNavigate={handleExploreCatalog} />
+      {/* Footer (Only on catalog / inner pages, not on home page) */}
+      {currentView === 'catalog' && <Footer onNavigate={handleExploreCatalog} />}
 
       {/* Modals & Overlays */}
       <CartDrawer onExploreCatalog={() => handleExploreCatalog('todos')} />
