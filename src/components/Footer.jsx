@@ -1,149 +1,171 @@
 import React from 'react';
-import { Ruler, MessageCircle, Heart } from 'lucide-react';
-import { useCart } from '../context/CartContext';
 
 export default function Footer({ onNavigate }) {
-  const { setIsSizeGuideOpen } = useCart();
+  const handleWhatsAppContact = () => {
+    const text = encodeURIComponent('¡Hola RUNWIPS! Necesito asistencia con un pedido o consulta.');
+    window.open(`https://wa.me/56900000000?text=${text}`, '_blank');
+  };
 
   return (
-    <footer className="bg-black border-t border-neutral-900 font-sans text-neutral-400">
-      
-      {/* Main Footer Links */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+    <footer className="bg-black border-t border-neutral-900/80 font-mono text-neutral-400 py-16 px-4 sm:px-8 lg:px-12 select-none">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Top 4-Columns Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
           
-          {/* Col 1: Brand Manifesto (2 cols wide) */}
-          <div className="lg:col-span-2 space-y-4">
+          {/* Col 1: Brand & Manifesto (3 cols) */}
+          <div className="lg:col-span-3 space-y-5">
             <div className="flex items-center">
-              <span className="font-montserrat text-2xl sm:text-3xl font-black tracking-tighter text-white">
+              <span className="font-montserrat text-3xl font-black tracking-tighter text-white">
                 RUN
               </span>
-              <span className="font-montserrat text-2xl sm:text-3xl font-black tracking-tighter text-rw-cyan drop-shadow-[0_0_12px_rgba(0,229,255,0.6)]">
+              <span className="font-montserrat text-3xl font-black tracking-tighter text-rw-cyan drop-shadow-[0_0_15px_rgba(0,229,255,0.7)]">
                 WIPS
               </span>
-              <span className="text-rw-cyan font-black text-2xl sm:text-3xl">.</span>
+              <span className="text-rw-cyan font-black text-3xl">.</span>
             </div>
 
-            <p className="text-xs text-neutral-400 leading-relaxed max-w-sm">
-              Marca chilena independiente de indumentaria inspirada en gaming, anime, cine y cultura pop. Diseños exclusivos impresos con la más alta tecnología DTF Ultra HD.
-            </p>
+            <div className="text-xs leading-relaxed text-neutral-400 max-w-[200px]">
+              <p>High-</p>
+              <p>performance</p>
+              <p>techwear</p>
+              <p>drops</p>
+              <p>Inspirado en el</p>
+              <p>anime, gaming</p>
+              <p>y la cultura</p>
+              <p>urbana.</p>
+            </div>
 
-            <div className="flex items-center gap-3 pt-2">
+            <div className="pt-2 text-xs space-y-1">
+              <span className="text-rw-cyan font-bold tracking-wider">// HQ:</span>
+              <p className="text-neutral-300 font-bold tracking-wider">PUERTO</p>
+              <p className="text-neutral-300 font-bold tracking-wider">MONTT_CHILE</p>
+            </div>
+          </div>
+
+          {/* Col 2: SISTEMA_NAVEGACIÓN (3 cols) */}
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="text-xs font-bold text-neutral-600 uppercase tracking-widest">
+              SISTEMA_NAVEGACIÓN
+            </h4>
+            <ul className="space-y-3 text-xs tracking-wider">
+              <li>
+                <button
+                  onClick={() => onNavigate('home')}
+                  className="text-neutral-300 hover:text-rw-cyan transition-colors"
+                >
+                  [ INICIO ]
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigate('catalog', 'todos')}
+                  className="text-neutral-300 hover:text-rw-cyan transition-colors"
+                >
+                  [ TIENDA ]
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigate('catalog', 'anime')}
+                  className="text-neutral-300 hover:text-rw-cyan transition-colors"
+                >
+                  [ ANIME_DROPS ]
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigate('catalog', 'gaming')}
+                  className="text-neutral-300 hover:text-rw-cyan transition-colors"
+                >
+                  [ GAMING_ZONE ]
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 3: PROTOCOLO_SOPORTE (3 cols) */}
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="text-xs font-bold text-neutral-600 uppercase tracking-widest">
+              PROTOCOLO_SOPORTE
+            </h4>
+            <ul className="space-y-3 text-xs tracking-wider">
+              <li>
+                <button
+                  onClick={handleWhatsAppContact}
+                  className="text-neutral-300 hover:text-rw-cyan transition-colors text-left"
+                >
+                  CONTACTO_DIRECTO
+                </button>
+              </li>
+              <li>
+                <span className="text-neutral-300 hover:text-rw-cyan cursor-pointer transition-colors">
+                  TÉRMINOS_SERVICIO
+                </span>
+              </li>
+              <li>
+                <span className="text-neutral-300 hover:text-rw-cyan cursor-pointer transition-colors">
+                  PRIVACIDAD_DATA
+                </span>
+              </li>
+              <li>
+                <button
+                  onClick={handleWhatsAppContact}
+                  className="text-neutral-300 hover:text-rw-cyan transition-colors text-left"
+                >
+                  RASTREO_PEDIDO
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 4: CONEXIÓN_EXTERNA & STATUS (3 cols) */}
+          <div className="lg:col-span-3 space-y-6">
+            <h4 className="text-xs font-bold text-neutral-600 uppercase tracking-widest">
+              CONEXIÓN_EXTERNA
+            </h4>
+            
+            {/* Social badges */}
+            <div className="flex items-center gap-2">
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-rw-cyan hover:border-rw-cyan transition-colors"
-                aria-label="Instagram"
+                className="px-3.5 py-1.5 rounded bg-black border border-neutral-800 text-xs font-bold text-neutral-300 hover:text-rw-cyan hover:border-rw-cyan transition-colors"
               >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-                </svg>
+                IG
               </a>
               <a
-                href="https://wa.me/56900000000"
+                href="https://tiktok.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-emerald-400 hover:border-emerald-400 transition-colors"
-                aria-label="WhatsApp"
+                className="px-3.5 py-1.5 rounded bg-black border border-neutral-800 text-xs font-bold text-neutral-300 hover:text-rw-cyan hover:border-rw-cyan transition-colors"
               >
-                <MessageCircle className="w-4 h-4" />
+                TK
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                className="px-3.5 py-1.5 rounded bg-black border border-neutral-800 text-xs font-bold text-neutral-300 hover:text-rw-cyan hover:border-rw-cyan transition-colors"
+              >
+                FB
               </a>
             </div>
-          </div>
 
-          {/* Col 2: Colecciones */}
-          <div className="space-y-3">
-            <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-white">Colecciones</h4>
-            <ul className="space-y-2 text-xs">
-              <li>
-                <button onClick={() => onNavigate('catalog', 'anime')} className="hover:text-rw-cyan transition-colors">
-                  Anime & Manga
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('catalog', 'gaming')} className="hover:text-rw-cyan transition-colors">
-                  Gaming & Rol
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('catalog', 'musica')} className="hover:text-rw-cyan transition-colors">
-                  Música / Rock
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('catalog', 'cultura-pop')} className="hover:text-rw-cyan transition-colors">
-                  Cultura Pop & Memes
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('catalog', 'todos')} className="hover:text-rw-cyan transition-colors">
-                  Todos los Drops
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 3: Ayuda & Guías */}
-          <div className="space-y-3">
-            <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-white">Información</h4>
-            <ul className="space-y-2 text-xs">
-              <li>
-                <button onClick={() => setIsSizeGuideOpen(true)} className="hover:text-rw-cyan transition-colors">
-                  Guía de Tallas (S-XXL)
-                </button>
-              </li>
-              <li>
-                <a href="#rw-shipping-section" className="hover:text-rw-cyan transition-colors">
-                  Tarifas de Envíos a Regiones
-                </a>
-              </li>
-              <li>
-                <span className="text-neutral-500">Cuidado de Prendas (Lavado)</span>
-              </li>
-              <li>
-                <span className="text-neutral-500">Términos y Condiciones</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 4: Métodos de Pago */}
-          <div className="space-y-3">
-            <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-white">Pagos Aceptados</h4>
-            <div className="flex flex-wrap gap-2 pt-1">
-              <span className="px-2.5 py-1 rounded-md bg-neutral-900 border border-neutral-800 text-[10px] font-mono text-neutral-300">
-                Webpay Plus
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-neutral-900 border border-neutral-800 text-[10px] font-mono text-neutral-300">
-                Redcompra
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-neutral-900 border border-neutral-800 text-[10px] font-mono text-neutral-300">
-                MercadoPago
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-neutral-900 border border-neutral-800 text-[10px] font-mono text-neutral-300">
-                Cuenta RUT
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-neutral-900 border border-neutral-800 text-[10px] font-mono text-neutral-300">
-                Transferencia
-              </span>
+            {/* Status Online */}
+            <div className="flex items-center gap-2 text-xs font-bold text-neutral-400">
+              <span className="w-2 h-2 rounded-full bg-rw-cyan shadow-[0_0_8px_#00e5ff] animate-pulse"></span>
+              <span className="tracking-wider">STATUS: ONLINE</span>
             </div>
-            <p className="text-[11px] text-neutral-500 pt-2">
-              Despachos asegurados a todo el territorio nacional chileno 🇨🇱
-            </p>
           </div>
 
         </div>
 
-        {/* Bottom Copyright */}
-        <div className="mt-12 pt-8 border-t border-neutral-900/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-500">
-          <p>© {new Date().getFullYear()} RUNWIPS.SHOP — Santiago de Chile. Todos los derechos reservados.</p>
-          <div className="flex items-center gap-1">
-            <span>Hecho con</span>
-            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
-            <span>para la comunidad gamer y otaku</span>
-          </div>
+        {/* Bottom Sub-bar */}
+        <div className="mt-20 pt-8 border-t border-neutral-900/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-600 tracking-widest">
+          <p>© 2026 RUNWIPS_STUDIO. TODOS LOS DERECHOS RESERVADOS.</p>
+          <p className="text-neutral-500 font-bold">DESIGNED BY NOWEB_LABS</p>
         </div>
 
       </div>
