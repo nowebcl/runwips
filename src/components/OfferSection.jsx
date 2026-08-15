@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Package, Sparkles, ShieldCheck, Check, Copy } from 'lucide-react';
+import { Check, Copy } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export default function OfferSection() {
@@ -25,109 +25,83 @@ export default function OfferSection() {
   };
 
   return (
-    <section id="rw-offer-section" className="relative w-full overflow-hidden bg-black font-sans my-12">
-      <div className="relative w-full min-h-[560px] overflow-hidden">
+    <section id="rw-offer-section" className="relative w-full overflow-hidden bg-black font-sans select-none">
+      <div className="relative w-full min-h-[640px] sm:min-h-[720px] flex items-center justify-center overflow-hidden">
         
-        {/* Background Image */}
+        {/* Background Image of Elden Ring Photoshoot */}
         <div
-          className="absolute inset-0 bg-cover bg-no-repeat filter brightness-90 contrast-[1.02] saturate-95 z-0"
+          className="absolute inset-0 bg-cover bg-no-repeat z-0"
           style={{
             backgroundImage: `url('https://runwips.shop/wp-content/uploads/2026/02/POLERASELDENRING-scaled.webp')`,
-            backgroundPosition: '50% 20%'
+            backgroundPosition: 'center 18%',
+            filter: 'brightness(0.85) contrast(1.05) saturate(0.98)'
           }}
         />
 
-        {/* Gradient Overlays */}
+        {/* Radial & Linear Gradient Overlays */}
         <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'radial-gradient(900px 520px at 45% 52%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.92) 100%), linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 52%, rgba(0,0,0,0.95) 100%)'
+              'radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.92) 100%), linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.7) 100%)'
           }}
         />
 
-        {/* Dot Matrix Decoration */}
-        <div className="rw-dots-tr absolute top-0 right-0 w-96 h-60 opacity-30 pointer-events-none z-20" />
-        <div className="rw-dots-bl absolute bottom-0 left-0 w-80 h-52 opacity-20 pointer-events-none z-20" />
+        {/* Halftone Top-Right & Bottom-Left */}
+        <div className="rw-dots-tr absolute top-0 right-0 w-80 h-52 opacity-25 pointer-events-none z-20" />
+        <div className="rw-dots-bl absolute bottom-0 left-0 w-72 h-44 opacity-20 pointer-events-none z-20" />
 
-        {/* Inner Content Grid */}
-        <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 flex flex-col justify-between min-h-[560px]">
+        {/* Centered Content */}
+        <div className="relative z-30 max-w-xl w-full mx-auto px-6 py-16 text-center flex flex-col items-center justify-center">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Spacer for visual focus on person/artwork */}
-            <div className="hidden lg:block lg:col-span-6 min-h-[300px]" />
+          {/* Main Headline */}
+          <h2 className="font-montserrat font-black text-3xl sm:text-4xl lg:text-[42px] text-white uppercase tracking-tight leading-[1.08] drop-shadow-[0_8px_30px_rgba(0,0,0,0.9)]">
+            OBTÉN UN DESCUENTO <br />
+            EN TU PRIMERA COMPRA
+          </h2>
 
-            {/* Form Content */}
-            <div className="lg:col-span-6 bg-black/70 backdrop-blur-xl p-8 sm:p-10 rounded-3xl border border-neutral-800 shadow-2xl">
-              <span className="rw-label text-xs">// PROMO EXCLUSIVA</span>
-              <h2 className="font-montserrat text-3xl sm:text-4xl font-black text-white uppercase tracking-tight mt-2 leading-tight">
-                Obtén un descuento <br />
-                <span className="text-rw-cyan">en tu primera compra</span>
-              </h2>
-              <p className="text-sm sm:text-base text-neutral-300 mt-3 font-medium">
-                Suscríbete y recibe tu código promocional con 10% OFF al instante.
-              </p>
+          {/* Subtitle */}
+          <p className="mt-3 text-sm sm:text-base text-white/90 font-sans font-medium drop-shadow-md">
+            Suscríbete y recibe tu código al instante
+          </p>
 
-              {generatedCode ? (
-                <div className="mt-6 p-4 rounded-2xl bg-neutral-900 border border-rw-cyan/60 flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] font-mono uppercase text-neutral-400 block">Tu código de descuento:</span>
-                    <span className="font-mono text-xl font-black text-rw-cyan tracking-wider">{generatedCode}</span>
-                  </div>
-                  <button
-                    onClick={handleCopy}
-                    className="px-4 py-2 rounded-xl bg-rw-cyan text-black font-mono font-bold text-xs flex items-center gap-1.5 hover:bg-white transition-colors"
-                  >
-                    {isCopied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                    <span>{isCopied ? '¡COPIADO!' : 'COPIAR'}</span>
-                  </button>
+          {/* Form / Code State */}
+          <div className="mt-7 w-full max-w-[420px]">
+            {generatedCode ? (
+              <div className="p-4 rounded-2xl bg-black/80 backdrop-blur-md border border-rw-cyan/70 shadow-[0_0_25px_rgba(0,229,255,0.3)] flex items-center justify-between animate-in zoom-in-95">
+                <div className="text-left font-mono">
+                  <span className="text-[10px] uppercase text-neutral-400 block">Tu código 10% OFF:</span>
+                  <span className="text-xl font-black text-rw-cyan tracking-wider">{generatedCode}</span>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="mt-6 flex flex-col sm:flex-row gap-3">
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Tu correo electrónico..."
-                    className="flex-1 h-14 px-5 rounded-2xl bg-black/60 border border-neutral-700 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-rw-cyan focus:ring-1 focus:ring-rw-cyan transition-all"
-                  />
-                  <button
-                    type="submit"
-                    className="h-14 px-8 rounded-2xl bg-rw-cyan text-black font-mono font-black text-xs uppercase tracking-wider hover:bg-white hover:shadow-[0_0_20px_#00e5ff] transition-all active:scale-95 shrink-0"
-                  >
-                    RECIBIR CÓDIGO
-                  </button>
-                </form>
-              )}
-            </div>
-          </div>
-
-          {/* Benefits Strip at Bottom */}
-          <div className="mt-12 pt-6 border-t border-white/10 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="flex items-center gap-3 text-neutral-200">
-              <Package className="w-6 h-6 text-rw-cyan shrink-0" />
-              <div>
-                <h4 className="text-xs font-mono font-bold uppercase text-white">Envíos a todo Chile</h4>
-                <p className="text-[11px] text-neutral-400">Blue Express / Starken a domicilio</p>
+                <button
+                  onClick={handleCopy}
+                  className="px-4 py-2.5 rounded-full bg-rw-cyan text-black font-mono font-bold text-xs flex items-center gap-1.5 hover:bg-white transition-all shadow-md active:scale-95"
+                >
+                  {isCopied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{isCopied ? '¡COPIADO!' : 'COPIAR'}</span>
+                </button>
               </div>
-            </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-3.5 w-full">
+                {/* Input with translucent background and white border */}
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Tu correo electrónico"
+                  className="w-full h-12 sm:h-13 px-5 rounded-xl bg-black/35 backdrop-blur-sm border border-white/30 text-sm text-white placeholder:text-neutral-400 focus:outline-none focus:border-white focus:bg-black/55 transition-all text-center"
+                />
 
-            <div className="flex items-center gap-3 text-neutral-200 md:border-l md:border-neutral-800 md:pl-6">
-              <Sparkles className="w-6 h-6 text-rw-cyan shrink-0" />
-              <div>
-                <h4 className="text-xs font-mono font-bold uppercase text-white">Drops Limitados</h4>
-                <p className="text-[11px] text-neutral-400">Diseños originales sin reimpresión</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3 text-neutral-200 md:border-l md:border-neutral-800 md:pl-6">
-              <ShieldCheck className="w-6 h-6 text-rw-cyan shrink-0" />
-              <div>
-                <h4 className="text-xs font-mono font-bold uppercase text-white">Pago Seguro 100%</h4>
-                <p className="text-[11px] text-neutral-400">Webpay Plus, MercadoPago, Transferencia</p>
-              </div>
-            </div>
+                {/* Pill Button with Cyan Border & Text */}
+                <button
+                  type="submit"
+                  className="w-full h-12 sm:h-13 rounded-full bg-black/40 backdrop-blur-sm border border-rw-cyan text-rw-cyan font-sans font-bold text-sm sm:text-base tracking-wide hover:bg-rw-cyan hover:text-black hover:shadow-[0_0_25px_rgba(0,229,255,0.6)] active:scale-[0.99] transition-all duration-200"
+                >
+                  Recibir código
+                </button>
+              </form>
+            )}
           </div>
 
         </div>
